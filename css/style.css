@@ -1,0 +1,285 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: rgb(2, 7, 56);
+  font-family: 'Montserrat', sans-serif;
+  height: 100vh;
+}
+
+.millionare {
+  height: 100vh;
+  background-color: rgb(0, 150, 255);
+  padding: 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.millionare__start-btn {
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  background: rgb(39, 39, 179);
+  color: #fff;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px 0px rgb(255, 255, 255);
+  display: block;
+  margin: auto;
+  transition: 1s;
+}
+
+.millionare__start-btn:hover {
+  box-shadow: 0 0 15px 0px rgb(97, 219, 131);
+  transform: scale(1.2);
+}
+
+.millionare__game {
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid #a7a7a7;
+  padding: 20px 0 30px 0;
+  box-shadow: 0 0 5px 0px rgb(255, 255, 255);
+  opacity: 0;
+  display: none;
+  transition: 2s;
+}
+
+.millionare__game-title {
+  margin-top: 0;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 30px;
+  letter-spacing: 5px;
+}
+
+.millionare__game-inner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+}
+
+.millionare__questions {
+  flex-basis: 70%;
+}
+
+.millionare__question {
+  display: none;
+}
+
+.millionare__question-title {
+  text-align: center;
+  font-weight: 600;
+  margin: 0 auto 50px;
+}
+
+.question-active {
+  display: block;
+}
+
+.millionare__answers {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.millionare__answer {
+  position: relative;
+  flex-basis: 48%;
+  padding: 4px 8px;
+  border-radius: 15px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  border: 1px solid #a7a7a7;
+  cursor: pointer;
+  box-shadow: 0 0 2px 0px rgb(255, 255, 255);
+  z-index: 1;
+  transition: 1s;
+}
+
+.millionare__answer:hover {
+  background-color: rgb(23, 23, 161);
+  color: #bdbdbd;
+}
+
+.answer-active {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background-color: rgba(23, 23, 161, .65);
+  border-radius: 15px;
+  z-index: -1;
+  transition: 1s cubic-bezier(0.67, -0.01, 0.25, 0.55);
+}
+
+.millionare__end-btn {
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  background-color: rgb(0, 150, 255, 0.5);
+  text-transform: uppercase;
+  box-shadow: 0 0 2px 0px rgb(255, 255, 255);
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  transition: 1s;
+  color: #fff;
+}
+
+.millionare__end-btn:hover {
+  box-shadow: 0 0 15px 0px rgb(0, 150, 255);  
+  transform: scale(1.2);
+}
+
+.millionare__game-info {
+  border-left: 0.5px solid #a7a7a7;
+  flex-basis: 30%;
+}
+
+.millionare__game-wins {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.millionare__game-wins span {
+  min-width: 27px;
+  display: inline-block;
+  text-align: right;
+  margin-right: 20px;
+}
+
+
+
+.win-guaranteed {
+  color: rgb(255, 255, 44);
+  font-weight: 700;
+}
+
+.wins-active {
+  background-color: rgb(220 220 38);
+}
+
+.millionare__wins-block {
+  line-height: 27px;
+  margin-left: 25%;
+  margin-bottom: 3px;
+  max-width: fit-content;
+  padding: 1px 14px 1px 10px;
+  overflow: hidden;
+  border-radius: 15px;
+  transition: 0.5s;
+}
+
+.millionare__info-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.millionare__info {
+  position: relative;
+  padding: 3px 7px;
+  border-radius: 15px;
+  border: 0.5px solid #a7a7a7;
+  min-width: 70px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 0 2px 0px rgb(255, 255, 255);
+  transition: 0.5s;
+}
+
+.millionare__info span {
+  position: absolute;
+  display: block;
+  background-color: rgb(197 22 22);
+  border-radius: 5px;
+  width: 6px;
+  height: 64px;
+  top: -17px;
+  left: calc(50% - 2.5px);
+  transform: rotate(-45deg);
+  opacity: 0;
+  transition: 1s;
+}
+
+.millionare__info .close-right {
+  transform: rotate(45deg);
+}
+
+.millionare__info:hover {
+  background-color: rgb(23, 23, 161);
+  color: #bdbdbd;
+}
+
+.millionare__info_spent {
+  background-color: rgb(255 85 85 / 70%);
+  color: #fff;
+  cursor: default;
+}
+
+.millionare__info_spent span {
+  opacity: 1;
+}
+
+.millionare__info_spent:hover {
+  color: #fff;
+  background-color: rgb(255 85 85 / 70%);
+}
+
+.hall-help {
+  margin: 0 20px;
+}
+
+/* закрашивание ответов  */
+.green-bg {
+  background: rgb(26, 170, 26);
+  color: #fff;
+}
+
+.green-bg:hover {
+  background: rgb(26, 170, 26);
+  color: #fff;
+}
+
+.error-answer {
+  background: rgb(202, 42, 39);
+  color: #fff;
+}
+
+.error-answer:hover {
+  background: rgb(202, 42, 39);
+  color: #fff;
+}
+
+/* запрет двойного нажатия  */
+
+.block-event {
+  pointer-events: none;
+}
+
+
+
